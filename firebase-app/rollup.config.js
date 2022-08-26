@@ -5,28 +5,28 @@ import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import replace from '@rollup/plugin-replace';
 
-const production = process.env.PROD;
+const production = !!process.env.PROD;
 
-function serve() {
-	let server;
+// function serve() {
+// 	let server;
 
-	function toExit() {
-		if (server) server.kill(0);
-	}
+// 	function toExit() {
+// 		if (server) server.kill(0);
+// 	}
 
-	return {
-		writeBundle() {
-			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
-				stdio: ['ignore', 'inherit', 'inherit'],
-				shell: true
-			});
+// 	return {
+// 		writeBundle() {
+// 			if (server) return;
+// 			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+// 				stdio: ['ignore', 'inherit', 'inherit'],
+// 				shell: true
+// 			});
 
-			process.on('SIGTERM', toExit);
-			process.on('exit', toExit);
-		}
-	};
-}
+// 			process.on('SIGTERM', toExit);
+// 			process.on('exit', toExit);
+// 		}
+// 	};
+// }
 
 export default {
 	input: 'src/main.js',
@@ -62,6 +62,8 @@ export default {
 		}),
 		commonjs(),
 
+		//Only using Rollup for building, using Firebase hosting emulator for served app
+		
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		// !production && serve(),
