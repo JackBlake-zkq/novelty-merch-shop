@@ -1,1 +1,1 @@
-<h1>Success</h1>
+<h1 style="text-align: center;">Order placed! Your package will arrive soon 👍</h1>

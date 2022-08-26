@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rollup -c",
+    "build:dev": "rollup -c",
+    "build:prod": "rollup -c -- --environment PROD:true",
     "build:functions": "cd functions && npm run build",
-    "dev": "npm run build && npm run build:functions && firebase emulators:start",
-    "serve:frontend": "rollup -c -w",
+    "dev": "npm run build:dev  && npm run build:functions && firebase emulators:start",
     "start": "sirv public --no-clear"
   },
   "devDependencies": {

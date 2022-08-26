@@ -1,1 +1,1 @@
-<h1>Order Cancelled</h1>
+<h1 style="text-align: center;">Order Cancelled</h1>
