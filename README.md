@@ -1,6 +1,6 @@
 # McNally Fans
 
-This WIP project implements backend that integrates several external APIs. The main logic of the application is dealt with in [Firebase Cloud Functions](https://firebase.google.com/docs/functions), and utilizes [Stipe's Javascript API](https://stripe.com/docs/js) and [Prodigi's RESTful Print API](https://www.prodigi.com/print-api/docs/reference/#introduction). The Cloud Functions send Stripe product data to users, create [stripe checkout](https://stripe.com/docs/payments/checkout) sessions, and listen to [stripe webhooks](https://stripe.com/docs/webhooks) to place orders by making requests to Prodigi's API with [Axios](https://axios-http.com/docs/intro).  The frontend for this web app is a [Svelte](https://svelte.dev/) single page app, built with [rollup](https://rollupjs.org/guide/en/), and deployed to [Firebase Hosting](https://firebase.google.com/docs/hosting).
+This WIP project implements a backend that integrates several external APIs. The main backend logic is dealt with in [Firebase Cloud Functions](https://firebase.google.com/docs/functions), and utilizes [Stipe's Javascript API](https://stripe.com/docs/js) and [Prodigi's RESTful Print API](https://www.prodigi.com/print-api/docs/reference/#introduction). The Cloud Functions send Stripe product data to users, create [stripe checkout](https://stripe.com/docs/payments/checkout) sessions, and listen to [stripe webhooks](https://stripe.com/docs/webhooks) to place orders by making requests to Prodigi's API with [Axios](https://axios-http.com/docs/intro).  The frontend for this web app is a [Svelte](https://svelte.dev/) single page app, built with [rollup](https://rollupjs.org/guide/en/), and deployed to [Firebase Hosting](https://firebase.google.com/docs/hosting).
 
 ## Development
 
@@ -13,7 +13,7 @@ STRIPE_SIGNING_SECRET
 PRODIGI_API_KEY
 ```
 
-These API come from the stripe dashboard (in test mode) and the Prodigi sandbox dashboard. The signing secret is used to verify that requests to the stripe webhook endpoint have the signature that ensures the requests were made by stripe. `CLIENT_URL` should be `http://localhost:5020`. Then, to run the application locally, from the `/firebase-app` directory, run:
+These API Keys come from the stripe dashboard (in test mode) and the Prodigi sandbox dashboard. The signing secret is used to verify that requests to the stripe webhook endpoint have the signature that ensures the requests were made by stripe. `CLIENT_URL` should be `http://localhost:5020`. Then, to run the application locally, from the `/firebase-app` directory, run:
 
 ```bash
 npm run dev
